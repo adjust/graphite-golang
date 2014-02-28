@@ -25,6 +25,15 @@ type Metric struct {
 	Timestamp int64
 }
 
+func (metric Metric) String() string {
+	return fmt.Sprintf(
+		"%s %s %s",
+		metric.Name,
+		metric.Value,
+		time.Unix(metric.Timestamp, 0),
+	)
+}
+
 // defaultTimeout is the default number of seconds that we're willing to wait
 // before forcing the connection establishment to fail
 const defaultTimeout = 5
